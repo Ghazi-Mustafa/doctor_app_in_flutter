@@ -4,4 +4,5 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(DocApp(appRouter: AppRouter()));
+  print("test");
 }
