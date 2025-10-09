@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextButton extends StatelessWidget {
-  AppTextButton({
+  const AppTextButton({
     super.key,
     required this.onPressed,
     required this.buttonText,

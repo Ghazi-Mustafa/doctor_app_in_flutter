@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextFormField extends StatelessWidget {
-  AppTextFormField({
+  const AppTextFormField({
     super.key,
     this.contentPadding,
     required this.hintText,
@@ -15,6 +15,9 @@ class AppTextFormField extends StatelessWidget {
     this.focusedBorder,
     this.enabledBorder,
     this.backgroundColor,
+    this.controller,
+    required this.validator,
+    this.onChanged
   });
 
   final EdgeInsetsGeometry? contentPadding;
@@ -26,6 +29,10 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
   final Color? backgroundColor;
+  final Function(String?) validator;
+  final TextEditingController? controller;
+  final void Function(String)? onChanged; 
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -48,6 +55,14 @@ class AppTextFormField extends StatelessWidget {
                 width: 1.3,
               ),
             ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: Colors.red, width: 1.3),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: Colors.red, width: 1.3),
+        ),
         contentPadding:
             contentPadding ??
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
@@ -57,6 +72,10 @@ class AppTextFormField extends StatelessWidget {
       ),
       obscureText: isObscureText ?? false,
       style: inputTextStyle ?? TextStyles.font14DarkBlueMedium,
+      validator: (value) => validator(value),
+      controller: controller,
+      onChanged: onChanged,
     );
   }
 }
+
