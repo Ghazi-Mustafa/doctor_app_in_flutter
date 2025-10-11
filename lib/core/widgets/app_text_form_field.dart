@@ -17,7 +17,7 @@ class AppTextFormField extends StatelessWidget {
     this.backgroundColor,
     this.controller,
     required this.validator,
-    this.onChanged
+    this.onChanged,
   });
 
   final EdgeInsetsGeometry? contentPadding;
@@ -31,7 +31,7 @@ class AppTextFormField extends StatelessWidget {
   final Color? backgroundColor;
   final Function(String?) validator;
   final TextEditingController? controller;
-  final void Function(String)? onChanged; 
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +40,9 @@ class AppTextFormField extends StatelessWidget {
         filled: true,
         fillColor: backgroundColor ?? ColorsManager.moreLightGrey,
         isDense: true,
+        contentPadding:
+            contentPadding ??
+            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
         focusedBorder:
             focusedBorder ??
             OutlineInputBorder(
@@ -63,9 +66,7 @@ class AppTextFormField extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(color: Colors.red, width: 1.3),
         ),
-        contentPadding:
-            contentPadding ??
-            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+
         hintStyle: hintStyle ?? TextStyles.font14LightGreyRegular,
         suffixIcon: suffixIcon,
         hintText: hintText,
@@ -78,4 +79,3 @@ class AppTextFormField extends StatelessWidget {
     );
   }
 }
-

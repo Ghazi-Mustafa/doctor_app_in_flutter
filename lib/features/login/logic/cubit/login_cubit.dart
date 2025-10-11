@@ -23,12 +23,7 @@ class LoginCubit extends Cubit<LoginState> {
   void validateThenDoLogin(BuildContext context) {
     if (formKey.currentState != null) {
       if (formKey.currentState!.validate()) {
-        emitLoading(
-          LoginRequestBody(
-            email: emailController.text,
-            password: passwordController.text,
-          ),
-        );
+        emitLoading();
       }
     }
   }
@@ -52,18 +47,20 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-  void emitLoading(LoginRequestBody body) async {
+  void emitLoading() async {
     emit(const LoginState.loading());
-    final response = await _loginRepo.login(body);
-    print("loading");
-    print(response.toString());
+    final response = await _loginRepo.login(
+      LoginRequestBody(
+        email: emailController.text,
+        password: passwordController.text,
+      ),
+    );
+
     response.when(
-      success: (LoginResponse) {
-        print("success");
-        emit(LoginState.success(LoginResponse));
+      success: (loginResponse) {
+        emit(LoginState.success(loginResponse));
       },
       failure: (error) {
-        print("error");
         emit(LoginState.failure(error.apiErrorModel.message));
       },
     );
