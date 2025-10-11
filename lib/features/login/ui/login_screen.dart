@@ -2,7 +2,7 @@ import 'package:doctor_app/core/helpers/spacing.dart';
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:doctor_app/core/widgets/app_text_button.dart';
 import 'package:doctor_app/features/login/logic/cubit/login_cubit.dart';
-import 'package:doctor_app/features/login/ui/widgets/already_have_account_text.dart';
+import 'package:doctor_app/features/login/ui/widgets/dont_have_account_text.dart';
 import 'package:doctor_app/features/login/ui/widgets/email_and_password.dart';
 import 'package:doctor_app/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:doctor_app/features/login/ui/widgets/terms_and_conditions.dart';
@@ -51,9 +51,9 @@ class LoginScreen extends StatelessWidget {
                       },
                     ),
                     verticalSpace(20),
-                    TermsAndConditions(),
+                    TermsAndConditions(condition: "login"),
                     verticalSpace(60),
-                    AlreadyHaveAccountText(),
+                    DontHaveAccount(),
                     LoginBlocListener(),
                   ],
                 ),
@@ -65,4 +65,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-

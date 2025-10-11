@@ -2,14 +2,14 @@ import 'package:doctor_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 
 class TermsAndConditions extends StatelessWidget {
-  const TermsAndConditions({super.key});
-
+  const TermsAndConditions({super.key,required this.condition});
+  final String condition;
   @override
   Widget build(BuildContext context) {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-        text: "By Logging, you agree to our ",
+        text: "By $condition, you agree to our ",
         style: TextStyles.font13GreyRegular,
         children: [
           TextSpan(

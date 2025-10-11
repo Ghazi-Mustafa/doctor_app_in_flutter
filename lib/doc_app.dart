@@ -6,23 +6,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DocApp extends StatelessWidget {
   final AppRouter appRouter;
-  const DocApp({super.key,required this.appRouter});
+  const DocApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      splitScreenMode: true,
       child: MaterialApp(
         initialRoute: Routes.onboardingScreen,
         debugShowCheckedModeBanner: false,
         title: 'Doctor App',
         theme: ThemeData(
           primaryColor: ColorsManager.mainBlue,
-          scaffoldBackgroundColor: Colors.white
+          scaffoldBackgroundColor: Colors.white,
         ),
-       onGenerateRoute: appRouter.generateRoute,
+        onGenerateRoute: appRouter.generateRoute,
       ),
     );
   }
