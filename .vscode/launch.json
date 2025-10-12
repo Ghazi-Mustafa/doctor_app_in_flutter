@@ -11,7 +11,7 @@
                 "--flavor",
                 "staging", // This is the flavor name, which helps the app know it's 'Harry Potter.'
                 "--target",
-                "lib/main_harrypotter.dart" // This is the target main file for the app, specifically for 'Harry Potter.'
+                "lib/main_staging.dart" // This is the target main file for the app, specifically for 'Harry Potter.'
             ]
         },
         {
@@ -24,7 +24,7 @@
                 "--flavor",
                 "production",
                 "--target",
-                "lib/main_harrypotter.dart"
+                "lib/main_production.dart"
             ]
         },
         
