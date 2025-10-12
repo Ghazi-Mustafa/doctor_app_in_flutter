@@ -4,9 +4,11 @@ import 'package:doctor_app/doc_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupGetit();
   await ScreenUtil.ensureScreenSize();
   runApp(DocApp(appRouter: AppRouter()));
+  // test new push to development
 }
