@@ -143,4 +143,8 @@ class TextStyles {
     fontWeight: FontWeightHelper.medium,
     color: Colors.white,
   );
+
+
 }
+
+
